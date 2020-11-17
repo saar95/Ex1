@@ -4,76 +4,39 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.Random;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
-class WGraph_DSTest2 {
+class WGraph_AlgoTest2 {
     private static Random _rnd = null;
 
     @Test
-    void getNode() {
+    void init() {
     }
 
     @Test
-    void hasEdge() {
+    void getGraph() {
     }
 
     @Test
-    void getEdge() {
+    void copy() {
     }
 
     @Test
-    void addNode() {
+    void isConnected() {
     }
 
     @Test
-    void connect() {
+    void shortestPathDist() {
     }
 
     @Test
-    void getV() {
+    void shortestPath() {
     }
 
     @Test
-    void testGetV() {
+    void save() {
     }
 
     @Test
-    void removeNode() {
-    }
-
-    @Test
-    void removeEdge() {
-    }
-
-    @Test
-    void nodeSize() {
-        weighted_graph g = graph_creator(100,0,1);
-        for(int i=0;i<10;i++){
-            g.removeNode(i);
-        }
-        int v = g.nodeSize();
-        assertEquals(90,v);
-        for(int i=0;i<10;i++){
-            g.removeNode(i);
-        }
-        v = g.nodeSize();
-        assertEquals(90,v);
-        g.removeNode(50);
-        g.removeNode(51);
-        g.removeNode(50);
-        v = g.nodeSize();
-        assertEquals(88,v);
-    }
-
-    @Test
-    void edgeSize() {
-        weighted_graph g = graph_creator(50,20,1);
-        int e_size =  g.edgeSize();
-        assertEquals(20, e_size);
-    }
-
-    @Test
-    void getMC() {
+    void load() {
     }
     public static weighted_graph graph_creator(int v_size, int e_size, int seed) {
         weighted_graph g = new WGraph_DS();
