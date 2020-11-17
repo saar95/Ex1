@@ -1,3 +1,5 @@
+import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class WGraph_DSTest2 {
@@ -10,51 +12,51 @@ class WGraph_DSTest2 {
         return g;
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void getNode() {
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void hasEdge() {
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void getEdge() {
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void addNode() {
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void connect() {
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void getV() {
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void testGetV() {
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void removeNode() {
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void removeEdge() {
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void nodeSize() {
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void edgeSize() {
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void getMC() {
     }
 }

@@ -100,6 +100,12 @@ public class WGraph_DS implements weighted_graph {
         return this.nodes.values();
     }
 
+    /**
+     * This method return a collection of all the nodes that connected with edges
+     * to the given node_id
+     * @param node_id
+     * @return Collection<node_info> of all node_id neighbors
+     */
     @Override
     public Collection<node_info> getV(int node_id) {
         int count=0;
@@ -132,6 +138,11 @@ public class WGraph_DS implements weighted_graph {
         return temp;
     }
 
+    /**
+     * This method remove an edge between given 2 keys (node1,node2) from the graph
+     * @param node1
+     * @param node2
+     */
     @Override
     public void removeEdge(int node1, int node2) {
         if(hasEdge(node1,node2)) {
@@ -157,6 +168,9 @@ public class WGraph_DS implements weighted_graph {
         return modeCount;
     }
 
+    /**
+     * This class represents vertex with meta data
+     */
     private class NodeInfo implements node_info {
 
         private int key;
@@ -195,6 +209,11 @@ public class WGraph_DS implements weighted_graph {
             this.tag = t;
         }
     }
+
+    /**
+     * this class represents an edge between 2 given nodes
+     * an edge have src,dest and weight
+     */
     private class Edge{
         private node_info src;
         private node_info dest;

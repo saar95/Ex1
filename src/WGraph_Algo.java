@@ -19,6 +19,11 @@ public class WGraph_Algo implements weighted_graph_algorithms {
         return this.wga;
     }
 
+    /**
+     * This method create a deep copy of the given graph by create new graph
+     * and add to him all the nodes and edges using simple methods.
+     * @return Deep copied graph
+     */
     @Override
     public weighted_graph copy() {
         node_info temp=null;
@@ -43,6 +48,11 @@ public class WGraph_Algo implements weighted_graph_algorithms {
         return null;
     }
 
+    /**
+     * This method return true iff there is a valid path from every node to each other node in the graph
+     * by changing all the connected node tags to 1
+     * @return True iff there is a valid path from every node to each other node in the graph else false.
+     */
     @Override
     public boolean isConnected() {
         int nodes = wga.nodeSize();
@@ -78,6 +88,13 @@ public class WGraph_Algo implements weighted_graph_algorithms {
         return ans;
     }
 
+    /**
+     * This method return the shortest path between src to dest considering the edges weight
+     * by changing each node tag to his shortest distance from the other nodes.
+     * @param src - start node
+     * @param dest - end (target) node
+     * @return double-the shortest path between src to dest
+     */
     @Override
     public double shortestPathDist(int src, int dest) {
         Queue<node_info> q = new LinkedList<node_info>();
@@ -111,7 +128,6 @@ public class WGraph_Algo implements weighted_graph_algorithms {
         double a=wga.getNode(dest).getTag();
         resInfo(wga);
         return a;
-
     }
     private void refactor(node_info temp) {
         Iterator <node_info> neighbors = wga.getV(temp.getKey()).iterator();
@@ -125,6 +141,13 @@ public class WGraph_Algo implements weighted_graph_algorithms {
         }
     }
 
+    /**
+     * This method returns a list of the shortest patch nodes by using
+     * same algo as shortestPathDist method
+     * @param src - start node
+     * @param dest - end (target) node
+     * @return list of the shortest patch nodes
+     */
     @Override
     public List<node_info> shortestPath(int src, int dest) {
         List<node_info> l = new ArrayList<node_info>();
