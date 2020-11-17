@@ -36,7 +36,11 @@ public class WGraph_DS implements weighted_graph {
      */
     @Override
     public boolean hasEdge(int node1, int node2) {
-        return (map.get(node1).containsKey(node2))&&(map.get(node2).containsKey(node1));
+            if(node1==node2)
+                return false;
+            if(map.get(node1).containsKey(node2))
+                return true;
+        return false;
     }
     /**
      * This method return the edge between 2 given node keys
@@ -78,12 +82,14 @@ public class WGraph_DS implements weighted_graph {
             map.get(node1).get(node2).setWeight(w);
             map.get(node2).get(node1).setWeight(w);
         }
-        Edge e = new Edge(getNode(node1),getNode(node2),w);
-        Edge k = new Edge(getNode(node2),getNode(node1),w);
-        map.get(node1).put(node2,e);
-        map.get(node2).put(node1,k);
-        edgeCount++;
-        modeCount++;
+        else if(node1!=node2) {
+            Edge e = new Edge(getNode(node1), getNode(node2), w);
+            Edge k = new Edge(getNode(node2), getNode(node1), w);
+            map.get(node1).put(node2, e);
+            map.get(node2).put(node1, k);
+            edgeCount++;
+            modeCount++;
+        }
     }
     /**
      * This method return a collection of all the nodes in the graph
@@ -103,7 +109,12 @@ public class WGraph_DS implements weighted_graph {
             temp.put(count++,getNode(it.next()));
         return temp.values();
     }
-
+    /**
+     * This method remove node with the given key from the graph.
+     * This method passes over all the nodes in the graph and delete all the edges to the given node key
+     * @param key
+     * @return The data of the removed node
+     */
     @Override
     public node_info removeNode(int key) {
         node_info temp =getNode(key);
@@ -156,7 +167,7 @@ public class WGraph_DS implements weighted_graph {
     public NodeInfo(int key){
             this.key=key;
             this.info="";
-            this.tag=0;
+            this.tag=Integer.MAX_VALUE;
         }
 
         @Override
@@ -207,24 +218,24 @@ public class WGraph_DS implements weighted_graph {
         }
     }
 
-    public static void main(String[] args) {
-        System.out.println("a");
-        weighted_graph g = new WGraph_DS();
-        g.addNode(0);
-        g.addNode(1);
-        g.addNode(2);
-        g.addNode(3);
-        System.out.println(g.hasEdge(0,1));
-        g.connect(0,1,1);
-        System.out.println(g.hasEdge(0,1));
-        System.out.println(g.getEdge(0,1));
-        g.removeEdge(0,1);
-        System.out.println(g.hasEdge(0,1));
-        g.connect(0,1,1);
-        g.connect(0,2,1);
-        g.connect(0,3,1);
-        g.connect(1,2,1);
-        g.removeNode(0);
-        System.out.println("a");
-    }
+//    public static void main(String[] args) {
+//        System.out.println("a");
+//        weighted_graph g = new WGraph_DS();
+//        g.addNode(0);
+//        g.addNode(1);
+//        g.addNode(2);
+//        g.addNode(3);
+//        System.out.println(g.hasEdge(0,1));
+//        g.connect(0,1,1);
+//        System.out.println(g.hasEdge(0,1));
+//        System.out.println(g.getEdge(0,1));
+//        g.removeEdge(0,1);
+//        System.out.println(g.hasEdge(0,1));
+//        g.connect(0,1,1);
+//        g.connect(0,2,1);
+//        g.connect(0,3,1);
+//        g.connect(1,2,1);
+//        g.removeNode(0);
+//        System.out.println("a");
+//    }
 }
