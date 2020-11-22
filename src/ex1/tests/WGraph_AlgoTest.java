@@ -1,7 +1,13 @@
+package ex1.tests;
 
+import ex1.src.WGraph_Algo;
+import ex1.src.node_info;
+import ex1.src.weighted_graph;
+import ex1.src.weighted_graph_algorithms;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import java.io.IOException;
 import java.util.List;
-import static org.junit.jupiter.api.Assertions.*;
 
 class WGraph_AlgoTest {
 
@@ -10,27 +16,27 @@ class WGraph_AlgoTest {
         weighted_graph g0 = WGraph_DSTest.graph_creator(0,0,1);
         weighted_graph_algorithms ag0 = new WGraph_Algo();
         ag0.init(g0);
-        assertTrue(ag0.isConnected());
+        Assertions.assertTrue(ag0.isConnected());
   
         g0 = WGraph_DSTest.graph_creator(1,0,1);
         ag0 = new WGraph_Algo();
         ag0.init(g0);
-        assertTrue(ag0.isConnected());
+        Assertions.assertTrue(ag0.isConnected());
 
          g0 = WGraph_DSTest.graph_creator(2,0,1);
         ag0 = new WGraph_Algo();
         ag0.init(g0);
-        assertFalse(ag0.isConnected());
+        Assertions.assertFalse(ag0.isConnected());
         
          g0 = WGraph_DSTest.graph_creator(2,1,1);
         ag0 = new WGraph_Algo();
         ag0.init(g0);
-        assertTrue(ag0.isConnected());
+        Assertions.assertTrue(ag0.isConnected());
 
         g0 = WGraph_DSTest.graph_creator(10,30,1);
         ag0.init(g0);
         boolean b = ag0.isConnected();
-        assertTrue(b);
+        Assertions.assertTrue(b);
     }
 
     @Test
@@ -38,9 +44,9 @@ class WGraph_AlgoTest {
         weighted_graph g0 = small_graph();
         weighted_graph_algorithms ag0 = new WGraph_Algo();
         ag0.init(g0);
-        assertTrue(ag0.isConnected());
+        Assertions.assertTrue(ag0.isConnected());
         double d = ag0.shortestPathDist(0,10);
-        assertEquals(d, 5.1);
+        Assertions.assertEquals(d, 5.1);
     }
 
     @Test
@@ -54,13 +60,13 @@ class WGraph_AlgoTest {
         int i = 0;
         for(node_info n: sp) {
         	//assertEquals(n.getTag(), checkTag[i]);
-        	assertEquals(n.getKey(), checkKey[i]);
+        	Assertions.assertEquals(n.getKey(), checkKey[i]);
         	i++;
         }
     }
     
     @Test
-    void save_load() {
+    void save_load() throws IOException {
         weighted_graph g0 = WGraph_DSTest.graph_creator(10,30,1);
         weighted_graph_algorithms ag0 = new WGraph_Algo();
         ag0.init(g0);
@@ -68,9 +74,9 @@ class WGraph_AlgoTest {
         ag0.save(str);
         weighted_graph g1 = WGraph_DSTest.graph_creator(10,30,1);
         ag0.load(str);
-        assertEquals(g0,g1);
+        Assertions.assertEquals(g0,g1);
         g0.removeNode(0);
-        assertNotEquals(g0,g1);
+        Assertions.assertNotEquals(g0,g1);
     }
 
     private weighted_graph small_graph() {
