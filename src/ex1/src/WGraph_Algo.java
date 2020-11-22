@@ -196,9 +196,10 @@ public class WGraph_Algo implements weighted_graph_algorithms,Serializable {
         return l;
     }
     private void listMaker(node_info dest ,List<node_info> l) {
+        node_info temp=null;
         Iterator <node_info> ni = wga.getV(dest.getKey()).iterator();
         while(ni.hasNext()){
-        node_info temp = ni.next();
+         temp = ni.next();
         if(dest.getTag()==temp.getTag()+wga.getEdge(dest.getKey(), temp.getKey()))
             {
                 l.add(temp);

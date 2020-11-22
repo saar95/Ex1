@@ -10,13 +10,13 @@ import java.util.Iterator;
  * with edge count for the number of edges and with mode count for the number of changes in the graph.
  */
 public class WGraph_DS implements weighted_graph, Serializable {
-    private HashMap<Integer, HashMap<Integer,Edge>> map;
+    private HashMap<Integer, HashMap<Integer, edge>> map;
     private HashMap<Integer, node_info> nodes;
     private int edgeCount;
     private int modeCount;
 
     public WGraph_DS(){
-        this.map=new HashMap<Integer, HashMap<Integer,Edge>>() ;
+        this.map=new HashMap<Integer, HashMap<Integer, edge>>() ;
         this.nodes=new HashMap<Integer, node_info>();
         this.edgeCount=0;
         this.modeCount=0;
@@ -78,7 +78,7 @@ public class WGraph_DS implements weighted_graph, Serializable {
     public void addNode(int key) {
         if(!map.containsKey(key)) {
             node_info temp = new NodeInfo(key);
-            HashMap<Integer, Edge> m = new HashMap<Integer, Edge>();
+            HashMap<Integer, edge> m = new HashMap<Integer, edge>();
             this.map.put(key, m);
             this.nodes.put(key,temp);
             modeCount++;
@@ -99,8 +99,8 @@ public class WGraph_DS implements weighted_graph, Serializable {
                 map.get(node1).get(node2).setWeight(w);
                 map.get(node2).get(node1).setWeight(w);
             } else if (node1 != node2) {
-                Edge e = new Edge(getNode(node1), getNode(node2), w);
-                Edge k = new Edge(getNode(node2), getNode(node1), w);
+                edge e = new edge(getNode(node1), getNode(node2), w);
+                edge k = new edge(getNode(node2), getNode(node1), w);
                 map.get(node1).put(node2, e);
                 map.get(node2).put(node1, k);
                 edgeCount++;
@@ -144,9 +144,9 @@ public class WGraph_DS implements weighted_graph, Serializable {
      */
     @Override
     public node_info removeNode(int key) {
-        node_info temp=getNode(key);
         if (!this.map.containsKey(key))
             return null;
+        node_info temp=getNode(key);
         Iterator<node_info> it=getV(key).iterator();
         while (it.hasNext())
         {
@@ -260,7 +260,7 @@ public class WGraph_DS implements weighted_graph, Serializable {
         private int key;
         private String info;
         private double tag;
-        private HashMap<Integer, Edge> edges;
+        private HashMap<Integer, edge> edges;
 
     public NodeInfo(int key){
             this.key=key;
@@ -306,12 +306,12 @@ public class WGraph_DS implements weighted_graph, Serializable {
      * this class represents an edge between 2 given nodes
      * every edge has src node,dest node and weight.
      */
-    private class Edge implements Serializable{
+    private class edge implements Serializable{
         private node_info src;
         private node_info dest;
         private double weight;
 
-        public Edge(node_info src,node_info dest,double weight){
+        public edge(node_info src, node_info dest, double weight){
             this.dest=dest;
             this.weight=weight;
         }
