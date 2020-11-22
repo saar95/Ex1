@@ -20,7 +20,7 @@ WGraph_AlgoTest2: Test all the weighted_graph_algorithms methods
 ## How to use?
 To use my weighted graph data structure you need to use WGraph_DS constructor to build a graph
 and use weighted graph methods to fill and connect between nodes.
-If you wish to use weighted graph algorithms methods you just need to use WGraph_Algo constructor and simply inhit your weighted graph.
+If you wish to use weighted graph algorithms methods you just need to use WGraph_Algo constructor and simply init your weighted graph.
 
 
 
