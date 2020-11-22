@@ -135,7 +135,8 @@ class WGraph_AlgoTest2 {
     }
 
     /**
-     *
+     *Method to create a graph.
+     *Taken from Ex0 Boaz tests
      * @return
      */
     public static weighted_graph graph_create(){

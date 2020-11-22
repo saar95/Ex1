@@ -278,41 +278,4 @@ public class WGraph_Algo implements weighted_graph_algorithms,Serializable {
             temp.setInfo("");
         }
     }
-    public static void main(String[] args) throws IOException {
-        weighted_graph g = new WGraph_DS();
-        g.addNode(0);
-        g.addNode(1);
-        g.addNode(2);
-        g.addNode(3);
-        g.addNode(4);
-        g.addNode(5);
-        g.connect(0,1,11);
-        g.connect(0,5,3);
-        g.connect(1,2,5);
-        g.connect(1,3,2);
-        g.connect(2,4,8);
-        g.connect(3,5,1);
-        g.removeNode(2);
-        weighted_graph_algorithms wga = new WGraph_Algo();
-        wga.init(g);
-        double c = wga.shortestPathDist(0,4);
-        List <node_info> l = wga.shortestPath(0,4);
-
-
-//        weighted_graph g1 = new WGraph_DS();
-//        g1.addNode(0);
-//        g1.addNode(1);
-//        g1.addNode(2);
-//        g1.addNode(3);
-//        g1.addNode(4);
-//        g1.addNode(5);
-//        g1.connect(0,1,12);
-//        g1.connect(0,5,3);
-//        g1.connect(1,2,5);
-//        g1.connect(1,3,2);
-//        g1.connect(2,4,8);
-//        g1.connect(3,5,1);
-//        System.out.println(g.equals(g1));
-        System.out.println("a");
-    }
 }

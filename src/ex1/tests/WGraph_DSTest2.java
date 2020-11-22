@@ -249,14 +249,18 @@ class WGraph_DSTest2 {
         long startTime = System.currentTimeMillis();
         weighted_graph g = graph_creator(1000000,10000000,1);
         long endTime = System.currentTimeMillis();
-        System.out.println(endTime-startTime);
-//        double dt = (end-start)/1000.0;
-//        boolean t = dt<15;
-//        if(t)
-//            System.out.println("runtime test:pass");
-//        else
-//            System.out.println("runtime test:failed");
+        long runtime=endTime-startTime;
+        if(runtime<40000)
+            System.out.println("Runtime test succeed");
+        else
+            System.out.println("Runtime test failed");
+
     }
+    /**
+     *Method to create a graph.
+     *Taken from Ex0 Boaz tests
+     * @return
+     */
     public static weighted_graph graph_creator(int v_size, int e_size, int seed) {
         weighted_graph g = new WGraph_DS();
         _rnd = new Random(seed);

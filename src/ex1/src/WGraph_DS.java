@@ -328,25 +328,4 @@ public class WGraph_DS implements weighted_graph, Serializable {
             this.dest=dest;
         }
     }
-
-//    public static void main(String[] args) {
-//        System.out.println("a");
-//        ex1.src.weighted_graph g = new ex1.src.WGraph_DS();
-//        g.addNode(0);
-//        g.addNode(1);
-//        g.addNode(2);
-//        g.addNode(3);
-//        System.out.println(g.hasEdge(0,1));
-//        g.connect(0,1,1);
-//        System.out.println(g.hasEdge(0,1));
-//        System.out.println(g.getEdge(0,1));
-//        g.removeEdge(0,1);
-//        System.out.println(g.hasEdge(0,1));
-//        g.connect(0,1,1);
-//        g.connect(0,2,1);
-//        g.connect(0,3,1);
-//        g.connect(1,2,1);
-//        g.removeNode(0);
-//        System.out.println("a");
-//    }
 }
